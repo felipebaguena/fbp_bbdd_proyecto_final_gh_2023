@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
 
         $this->call([
-            HeroSeeder::class
+            HeroSeeder::class,
+            ItemSeeder::class,
+            LootSeeder::class
         ]);
 
         // \App\Models\User::factory()->create([
