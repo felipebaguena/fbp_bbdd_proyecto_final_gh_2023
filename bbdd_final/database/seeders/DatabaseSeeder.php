@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             HeroSeeder::class,
             ItemSeeder::class,
             LootSeeder::class,
-            MonsterSeeder::class
+            MonsterSeeder::class,
+            StageSeeder::class
         ]);
 
         // \App\Models\User::factory()->create([

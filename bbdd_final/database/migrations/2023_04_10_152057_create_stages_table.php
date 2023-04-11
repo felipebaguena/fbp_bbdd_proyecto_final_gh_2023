@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('stages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('modifier');
+            $table->integer('attack_modifier');
+            $table->integer('defense_modifier');
+            $table->integer('health_modifier');
             $table->string('image')->nullable();
             $table->timestamps();
         });
