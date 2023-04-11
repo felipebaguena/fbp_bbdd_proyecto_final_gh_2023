@@ -1,0 +1,163 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class HeroSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::table('heroes')->insert([
+            [
+                'id' => 1,
+                'user_id' => rand(1, 10),
+                'name' => "Oswin Wolfg",
+                'story' => "An outlaw, who has a reputation for being melodramatic.",
+                'attack' => 10,
+                'defense' => 12,
+                'health' => 130,
+                'level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 2,
+                'user_id' => rand(1, 10),
+                'name' => "Harlan Hathewaye",
+                'story' => "A noblewoman, who can be judgemental.",
+                'attack' => 6,
+                'defense' => 16,
+                'health' => 160,
+                'level' => 4,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 3,
+                'user_id' => rand(1, 10),
+                'name' => "Leigh Hawke",
+                'story' => "A rogue, who once was hopeful.",
+                'attack' => 14,
+                'defense' => 8,
+                'health' => 100,
+                'level' => 4,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 4,
+                'user_id' => rand(1, 10),
+                'name' => "Kynaston Elmere",
+                'story' => "A blacksmith, who lies more often than not.",
+                'attack' => 10,
+                'defense' => 14,
+                'health' => 120,
+                'level' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 5,
+                'user_id' => rand(1, 10),
+                'name' => "Grayson Hayden",
+                'story' => "A soldier, who is a crank.",
+                'attack' => 8,
+                'defense' => 13,
+                'health' => 160,
+                'level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 6,
+                'user_id' => rand(1, 10),
+                'name' => "Beorhtric Goode",
+                'story' => "A ranger, who is past prime.",
+                'attack' => 10,
+                'defense' => 10,
+                'health' => 150,
+                'level' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 7,
+                'user_id' => rand(1, 10),
+                'name' => "Edgarda Haileye",
+                'story' => "A soldier, who has a tendency to be cowardly.",
+                'attack' => 10,
+                'defense' => 11,
+                'health' => 90,
+                'level' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 8,
+                'user_id' => rand(1, 10),
+                'name' => "Everild Weste",
+                'story' => "A shaman, who is soft-hearted.",
+                'attack' => 10,
+                'defense' => 14,
+                'health' => 180,
+                'level' => 6,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 9,
+                'user_id' => rand(1, 10),
+                'name' => "Earna Baines",
+                'story' => "A sellsword, who is surprisingly gentle.",
+                'attack' => 12,
+                'defense' => 12,
+                'health' => 150,
+                'level' => 4,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 10,
+                'user_id' => rand(1, 10),
+                'name' => "Raylee Read",
+                'story' => "A rogue, who can be restless.",
+                'attack' => 9,
+                'defense' => 14,
+                'health' => 140,
+                'level' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 11,
+                'user_id' => rand(1, 10),
+                'name' => "Tatum Hardinge",
+                'story' => "A gentleman thief, who can be ambitious.",
+                'attack' => 14,
+                'defense' => 16,
+                'health' => 180,
+                'level' => 7,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 12,
+                'user_id' => rand(1, 10),
+                'name' => "Yetta Wyatte",
+                'story' => "A warlord, who can be stoic.",
+                'attack' => 10,
+                'defense' => 14,
+                'health' => 110,
+                'level' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+    }
+}

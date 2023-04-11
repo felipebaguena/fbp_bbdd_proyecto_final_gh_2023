@@ -22,7 +22,7 @@ return new class extends Migration
             ->onDelete('cascade');
 
             $table->string('name');
-            $table->string('story');
+            $table->longText('story');
             $table->integer('attack');
             $table->integer('defense');
             $table->integer('health');
