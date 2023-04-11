@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             HeroSeeder::class,
             ItemSeeder::class,
-            LootSeeder::class
+            LootSeeder::class,
+            MonsterSeeder::class
         ]);
 
         // \App\Models\User::factory()->create([
