@@ -23,7 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // USERS
 
-Route::get('/users', [UserController::class, 'getUsers']);
+Route::group([
+    'middleware' => ['auth:sanctum', 'isAdmin']
+    ], function () {
+    Route::get('/users', [UserController::class, 'getUsers']);
+});
+
+
 Route::put('/users/{id}', [UserController::class, 'updateUsers']);
 Route::delete('/users/{id}', [UserController::class, 'deleteUsers']);
 
