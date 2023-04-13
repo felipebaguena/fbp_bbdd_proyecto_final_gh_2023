@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\MonsterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -47,3 +48,15 @@ Route::group([
 // HEROES
 
 Route::post('/heroes', [HeroController::class, 'createHero'])->middleware('auth:sanctum');
+
+// MONSTERS
+
+Route::get('/monsters', [MonsterController::class, 'getMonsters']);
+
+Route::group([
+    'middleware' => ['auth:sanctum', 'isAdmin']
+], function () {
+    Route::post('/monsters', [MonsterController::class, 'createMonster']);
+    Route::put('/monsters/{id}', [MonsterController::class, 'updateMonster']);
+    Route::delete('/monsters/{id}', [MonsterController::class, 'deleteMonster']);
+});
