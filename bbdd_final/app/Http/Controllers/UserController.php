@@ -12,7 +12,7 @@ class UserController extends Controller
         $users = User::all();
         return response()->json($users);
     }
-    
+
     public function updateUsers(Request $request, $id)
     {
         $user = User::find($id);
@@ -27,8 +27,17 @@ class UserController extends Controller
         }
     }    
 
-    public function deleteUsers()
-    {
-        return " User deleted";
+public function deleteUsers(Request $request, $id)
+{
+    $user = User::find($id);
+
+    if ($user) {
+        $user->delete();
+
+        return response()->json(['status' => 'success', 'message' => 'User deleted']);
+    } else {
+        return response()->json(['status' => 'error', 'message' => 'User not found']);
     }
+}
+
 }
