@@ -2,24 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function getUsers()
     {
-        return "Get all users";
+        $users = User::all();
+        return response()->json($users);
     }
-
-    public function createUsers()
+    
+    public function updateUsers(Request $request, $id)
     {
-        return " User create";
-    }
-
-    public function updateUsers()
-    {
-        return " User updated";
-    }
+        $user = User::find($id);
+    
+        if ($user) {
+            $updatedData = $request->only(['name', 'email', 'password']);
+            $user->update($updatedData);
+    
+            return response()->json(['status' => 'success', 'message' => 'User updated', 'data' => $user]);
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'User not found']);
+        }
+    }    
 
     public function deleteUsers()
     {
