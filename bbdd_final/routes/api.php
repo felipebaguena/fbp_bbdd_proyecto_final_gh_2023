@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\MonsterController;
+use App\Http\Controllers\StageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,6 @@ Route::group([
     ], function () {
     Route::get('/users', [UserController::class, 'getUsers']);
 });
-
 
 Route::put('/users/{id}', [UserController::class, 'updateUsers']);
 Route::delete('/users/{id}', [UserController::class, 'deleteUsers']);
@@ -59,4 +59,16 @@ Route::group([
     Route::post('/monsters', [MonsterController::class, 'createMonster']);
     Route::put('/monsters/{id}', [MonsterController::class, 'updateMonster']);
     Route::delete('/monsters/{id}', [MonsterController::class, 'deleteMonster']);
+});
+
+// STAGES
+
+Route::get('/stages', [StageController::class, 'getStages']);
+
+Route::group([
+    'middleware' => ['auth:sanctum', 'isAdmin']
+], function () {
+    Route::post('/stages', [StageController::class, 'createStage']);
+    Route::put('/stages/{id}', [StageController::class, 'updateStage']);
+    Route::delete('/stages/{id}', [StageController::class, 'deleteStage']);
 });
