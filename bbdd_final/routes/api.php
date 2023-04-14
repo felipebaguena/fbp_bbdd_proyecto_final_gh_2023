@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MonsterController;
 use App\Http\Controllers\StageController;
 use App\Http\Controllers\UserController;
@@ -71,4 +72,16 @@ Route::group([
     Route::post('/stages', [StageController::class, 'createStage']);
     Route::put('/stages/{id}', [StageController::class, 'updateStage']);
     Route::delete('/stages/{id}', [StageController::class, 'deleteStage']);
+});
+
+// ITEMS
+
+Route::get('/items', [ItemController::class, 'getItems']);
+
+Route::group([
+    'middleware' => ['auth:sanctum', 'isAdmin']
+], function () {
+    Route::post('/items', [ItemController::class, 'createItem']);
+    Route::put('/items/{id}', [ItemController::class, 'updateItem']);
+    Route::delete('/items/{id}', [ItemController::class, 'deleteItem']);
 });
