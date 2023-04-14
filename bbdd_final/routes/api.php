@@ -32,6 +32,7 @@ Route::group([
     'middleware' => ['auth:sanctum', 'isAdmin']
     ], function () {
     Route::get('/users', [UserController::class, 'getUsers']);
+    Route::put('/user/{id}/change-role/{roleId}', [UserController::class, 'changeRole']);
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {

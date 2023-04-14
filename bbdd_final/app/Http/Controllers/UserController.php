@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hero;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,4 +65,35 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function changeRole($id, $roleId)
+{
+    $user = User::find($id);
+
+    if ($user) {
+        $validRoleIds = Role::pluck('id')->toArray();
+
+        if (in_array($roleId, $validRoleIds)) {
+            $user->role_id = $roleId;
+            $user->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'User role updated successfully',
+                'data' => $user
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid role ID provided'
+            ]);
+        }
+    } else {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'User not found'
+        ]);
+    }
+}
+
 }
