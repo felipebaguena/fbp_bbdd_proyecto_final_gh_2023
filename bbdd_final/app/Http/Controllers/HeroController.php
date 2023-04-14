@@ -37,6 +37,30 @@ class HeroController extends Controller
         ], 201);
     }
 
+    public function levelUpHero($heroId)
+    {
+        $hero = Hero::find($heroId);
+
+        if ($hero) {
+            $hero->level += 1;
+            $hero->attack += rand(3, 6);
+            $hero->defense += rand(3, 6);
+            $hero->health += rand(10, 30);
+            $hero->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Hero leveled up successfully',
+                'data' => $hero,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hero not found',
+            ], 404);
+        }
+    }
+
     public function addItemToHero($heroId, $itemId)
     {
         $hero = Hero::find($heroId);
