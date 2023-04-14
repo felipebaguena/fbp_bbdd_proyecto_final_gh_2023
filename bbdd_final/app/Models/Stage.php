@@ -19,4 +19,8 @@ class Stage extends Model
         'updated_at',
     ];
 
+    public function battles()
+    {
+        return $this->hasMany(Battle::class);
+    }
 }

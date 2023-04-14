@@ -18,4 +18,9 @@ class Monster extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function battles()
+    {
+        return $this->hasMany(Battle::class);
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BattleController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MonsterController;
@@ -91,3 +92,7 @@ Route::group([
     Route::put('/items/{id}', [ItemController::class, 'updateItem']);
     Route::delete('/items/{id}', [ItemController::class, 'deleteItem']);
 });
+
+// BATTLES
+
+Route::post('/battles', [BattleController::class, 'createBattle']);

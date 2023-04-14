@@ -30,4 +30,9 @@ class Hero extends Model
     {
         return $this->belongsToMany(Item::class, 'loots');
     }
+
+    public function battles()
+    {
+        return $this->hasMany(Battle::class);
+    }
 }
