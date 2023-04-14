@@ -49,6 +49,8 @@ Route::group([
 // HEROES
 
 Route::post('/heroes', [HeroController::class, 'createHero'])->middleware('auth:sanctum');
+Route::delete('/heroes/{heroId}', [HeroController::class, 'deleteHero']);
+
 Route::put('/heroes/{heroId}/level-up', [HeroController::class, 'levelUpHero']);
 
 Route::post('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'addItemToHero']);

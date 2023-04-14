@@ -37,6 +37,24 @@ class HeroController extends Controller
         ], 201);
     }
 
+    public function deleteHero($heroId)
+    {
+        $hero = Hero::find($heroId);
+
+        if ($hero) {
+            $hero->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'Hero deleted successfully',
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hero not found',
+            ], 404);
+        }
+    }
+
     public function levelUpHero($heroId)
     {
         $hero = Hero::find($heroId);
