@@ -98,6 +98,12 @@ Route::group([
     Route::delete('/items/{id}', [ItemController::class, 'deleteItem']);
 });
 
+Route::group([
+    'middleware' => ['auth:sanctum']
+    ], function () {
+        Route::post('/add-item-to-hero', [ItemController::class, 'assignRandomItemToSelectedHero']);
+});
+
 // BATTLES
 
 Route::group([

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Loot;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -62,4 +65,23 @@ class ItemController extends Controller
             return response()->json(['status' => 'error', 'message' => 'Item not found']);
         }
     }
+
+    public function assignRandomItemToSelectedHero()
+    {
+        $userId = Auth::id();
+        $user = User::find($userId);
+        
+        if (!$user->selected_hero) {
+            return response()->json(['status' => 'error', 'message' => 'No hero selected']);
+        }
+        
+        $item = Item::inRandomOrder()->first();
+        
+        $loot = Loot::create([
+            'hero_id' => $user->selected_hero_id,
+            'item_id' => $item->id,
+        ]);
+        
+        return response()->json(['status' => 'success', 'message' => 'Item assigned to hero', 'data' => $loot]);
+    }    
 }
