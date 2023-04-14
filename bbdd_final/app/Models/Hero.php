@@ -21,10 +21,13 @@ class Hero extends Model
         'updated_at',
     ];
 
-    // Relación entre el héroe y el usuario
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    public function items()
+    {
+        return $this->belongsToMany(Item::class, 'loots');
+    }
 }

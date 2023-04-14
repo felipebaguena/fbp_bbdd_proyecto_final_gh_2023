@@ -50,6 +50,9 @@ Route::group([
 
 Route::post('/heroes', [HeroController::class, 'createHero'])->middleware('auth:sanctum');
 
+Route::post('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'addItemToHero']);
+Route::delete('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'removeItemFromHero']);
+
 // MONSTERS
 
 Route::get('/monsters', [MonsterController::class, 'getMonsters']);

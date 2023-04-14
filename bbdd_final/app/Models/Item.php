@@ -19,4 +19,9 @@ class Item extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function heroes()
+    {
+        return $this->belongsToMany(Hero::class, 'loots');
+    }
 }
