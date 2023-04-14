@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -22,6 +23,11 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function selected_hero()
+    {
+        return $this->hasOne(Hero::class, 'id', 'selected_hero_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

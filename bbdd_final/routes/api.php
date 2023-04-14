@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -31,6 +32,10 @@ Route::group([
     'middleware' => ['auth:sanctum', 'isAdmin']
     ], function () {
     Route::get('/users', [UserController::class, 'getUsers']);
+});
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/heroes/{heroId}/select', [UserController::class, 'selectHero']);
 });
 
 Route::put('/users/{id}', [UserController::class, 'updateUsers']);
@@ -95,4 +100,8 @@ Route::group([
 
 // BATTLES
 
-Route::post('/battles', [BattleController::class, 'createBattle']);
+Route::group([
+    'middleware' => ['auth:sanctum']
+    ], function () {
+        Route::post('/battles', [BattleController::class, 'createBattle']);
+});
