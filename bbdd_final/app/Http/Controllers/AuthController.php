@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\PersonalAccessToken;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,7 +55,6 @@ class AuthController extends Controller
 
         $user = User::query()->where('email', $request['email'])->first();
 
-        // Validamos si el usuario existe
         if (!$user) {
             return response(
                 ["success" => false, "message" => "Email or password are invalid",],
@@ -62,7 +62,6 @@ class AuthController extends Controller
             );
         }
 
-        // Validamos la contraseña
         if (!Hash::check($request['password'], $user->password)) {
             return response(["success" => true, "message" => "Email or password are invalid"], Response::HTTP_NOT_FOUND);
         }
@@ -81,9 +80,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $accessToken = $request->bearerToken();
-        // Get access token from database
         $token = PersonalAccessToken::findToken($accessToken);
-        // Revoke token
         $token->delete();
         return response(
             [
@@ -107,4 +104,21 @@ class AuthController extends Controller
             Response::HTTP_OK
         );
     }
+
+    public function updateProfile(Request $request)
+    {
+        $authenticatedUser = Auth::user();
+    
+        $user = User::find($authenticatedUser->id);
+    
+        if ($user) {
+            $updatedData = $request->only(['name', 'email', 'password']);
+            $user->update($updatedData);
+    
+            return response()->json(['status' => 'success', 'message' => 'User updated', 'data' => $user]);
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'User not found']);
+        }
+    }
+    
 }

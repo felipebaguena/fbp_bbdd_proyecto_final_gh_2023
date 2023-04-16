@@ -16,6 +16,12 @@ class UserController extends Controller
         return response()->json($users);
     }
 
+    public function getUser($id)
+    {
+        $user = User::with('heroes.items')->findOrFail($id);
+        return response()->json($user);
+    }
+
     public function updateUsers(Request $request, $id)
     {
         $user = User::find($id);

@@ -5,6 +5,7 @@ use App\Http\Controllers\BattleController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MonsterController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ Route::group([
     'middleware' => ['auth:sanctum', 'isAdmin']
     ], function () {
     Route::get('/users', [UserController::class, 'getUsers']);
+    Route::get('/users/{id}', [UserController::class, 'getUser']);
     Route::put('/user/{id}/change-role/{roleId}', [UserController::class, 'changeRole']);
 });
 
@@ -51,6 +53,15 @@ Route::group([
     ], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/profile', [AuthController::class, 'profile']);
+    Route::put('/profile', [AuthController::class, 'updateProfile']);
+});
+
+// ROLES
+
+Route::group([
+    'middleware' => ['auth:sanctum', 'isAdmin']
+], function () {
+    Route::get('/roles', [RoleController::class, 'getAllRoles']);
 });
 
 // HEROES
