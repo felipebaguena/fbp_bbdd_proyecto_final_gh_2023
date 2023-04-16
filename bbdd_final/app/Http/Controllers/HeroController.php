@@ -79,6 +79,18 @@ class HeroController extends Controller
         }
     }
 
+    public function getHeroItems(Request $request, $hero_id)
+    {
+        $hero = Hero::find($hero_id);
+        if (!$hero) {
+            return response()->json(['message' => 'Hero not found'], 404);
+        }
+
+        $items = $hero->loots()->with('item')->get()->pluck('item');
+        return response()->json(['status' => 'success', 'data' => $items], 200);
+    }
+
+
     public function addItemToHero($heroId, $itemId)
     {
         $hero = Hero::find($heroId);

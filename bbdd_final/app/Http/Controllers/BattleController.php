@@ -29,6 +29,8 @@ class BattleController extends Controller
             'monster_id' => $monster->id,
             'stage_id' => $stage->id,
         ]);
+
+        $battle->load('hero', 'monster');
     
         return response()->json(['status' => 'success', 'message' => 'Battle created', 'data' => $battle]);
     }    

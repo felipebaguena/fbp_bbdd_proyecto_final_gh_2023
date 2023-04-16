@@ -72,6 +72,7 @@ Route::delete('/heroes/{heroId}', [HeroController::class, 'deleteHero']);
 
 Route::put('/heroes/{heroId}/level-up', [HeroController::class, 'levelUpHero']);
 
+Route::get('/hero/{hero_id}/items', [HeroController::class, 'getHeroItems']);
 Route::post('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'addItemToHero']);
 Route::delete('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'removeItemFromHero']);
 
