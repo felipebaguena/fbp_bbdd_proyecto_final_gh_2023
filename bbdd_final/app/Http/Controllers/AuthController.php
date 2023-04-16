@@ -93,8 +93,9 @@ class AuthController extends Controller
 
     public function profile()
     {
-        $user = auth()->user();
-
+        $userId = auth()->id();
+        $user = User::with('heroes.items')->findOrFail($userId);
+    
         return response(
             [
                 "success" => true,
@@ -104,6 +105,7 @@ class AuthController extends Controller
             Response::HTTP_OK
         );
     }
+    
 
     public function updateProfile(Request $request)
     {

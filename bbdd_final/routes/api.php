@@ -39,6 +39,7 @@ Route::group([
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/heroes/{heroId}/select', [UserController::class, 'selectHero']);
+    Route::get('/profile/heroes', [UserController::class, 'getHeroesAndItems']);
 });
 
 Route::put('/users/{id}', [UserController::class, 'updateUsers']);

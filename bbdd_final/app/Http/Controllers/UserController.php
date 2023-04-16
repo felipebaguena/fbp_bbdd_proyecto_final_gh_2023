@@ -49,6 +49,14 @@ class UserController extends Controller
         }
     }
 
+    public function getHeroesAndItems()
+    {
+        $userId = auth()->id();
+        $user = User::with('heroes.items')->findOrFail($userId);
+
+        return response()->json($user->heroes);
+    }
+
     public function selectHero(Request $request, $heroId)
     {
         $userId = Auth::id();
@@ -73,33 +81,32 @@ class UserController extends Controller
     }
 
     public function changeRole($id, $roleId)
-{
-    $user = User::find($id);
+    {
+        $user = User::find($id);
 
-    if ($user) {
-        $validRoleIds = Role::pluck('id')->toArray();
+        if ($user) {
+            $validRoleIds = Role::pluck('id')->toArray();
 
-        if (in_array($roleId, $validRoleIds)) {
-            $user->role_id = $roleId;
-            $user->save();
+            if (in_array($roleId, $validRoleIds)) {
+                $user->role_id = $roleId;
+                $user->save();
 
-            return response()->json([
-                'status' => 'success',
-                'message' => 'User role updated successfully',
-                'data' => $user
-            ]);
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'User role updated successfully',
+                    'data' => $user
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Invalid role ID provided'
+                ]);
+            }
         } else {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Invalid role ID provided'
+                'message' => 'User not found'
             ]);
         }
-    } else {
-        return response()->json([
-            'status' => 'error',
-            'message' => 'User not found'
-        ]);
     }
-}
-
 }
