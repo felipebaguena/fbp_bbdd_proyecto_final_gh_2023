@@ -61,15 +61,24 @@ class HeroController extends Controller
 
         if ($hero) {
             $hero->level += 1;
-            $hero->attack += rand(3, 6);
-            $hero->defense += rand(3, 6);
-            $hero->health += rand(10, 30);
+            $addedAttack = rand(3, 6);
+            $addedDefense = rand(3, 6);
+            $addedHealth = rand(10, 30);
+
+            $hero->attack += $addedAttack;
+            $hero->defense += $addedDefense;
+            $hero->health += $addedHealth;
             $hero->save();
 
             return response()->json([
                 'success' => true,
                 'message' => 'Hero leveled up successfully',
                 'data' => $hero,
+                'addedValues' => [
+                    'attack' => $addedAttack,
+                    'defense' => $addedDefense,
+                    'health' => $addedHealth,
+                ],
             ]);
         } else {
             return response()->json([
