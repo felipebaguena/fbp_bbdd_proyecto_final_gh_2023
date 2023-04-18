@@ -16,10 +16,10 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
-            ->references('id')
-            ->on('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->string('name');
             $table->longText('story');
@@ -27,6 +27,14 @@ return new class extends Migration
             $table->integer('defense');
             $table->integer('health');
             $table->integer('level');
+
+            $table->unsignedBigInteger('hero_image_id')->nullable();
+            $table->foreign('hero_image_id')
+                ->references('id')
+                ->on('hero_images')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
+
             $table->timestamps();
         });
     }

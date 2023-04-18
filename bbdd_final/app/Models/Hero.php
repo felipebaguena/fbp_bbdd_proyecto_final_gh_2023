@@ -17,6 +17,7 @@ class Hero extends Model
         'defense',
         'health',
         'level',
+        'image',
         'created_at',
         'updated_at',
     ];
@@ -39,5 +40,10 @@ class Hero extends Model
     public function battles()
     {
         return $this->hasMany(Battle::class);
+    }
+
+    public function heroImage()
+    {
+        return $this->belongsTo(HeroImage::class);
     }
 }

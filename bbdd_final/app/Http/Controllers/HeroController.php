@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hero;
+use App\Models\HeroImage;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,18 @@ class HeroController extends Controller
             'message' => 'Hero created successfully',
             'data' => $hero,
         ], 201);
+    }
+
+    public function getImageById($imageId)
+    {
+        $heroImage = HeroImage::find($imageId);
+
+        if ($heroImage) {
+            $imageUrl = url($heroImage->image);
+            return response()->json(['image_url' => $imageUrl]);
+        }
+
+        return response()->json(['error' => 'Image not found'], 404);
     }
 
     public function deleteHero($heroId)
