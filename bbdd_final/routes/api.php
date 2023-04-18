@@ -103,6 +103,7 @@ Route::group([
 // ITEMS
 
 Route::get('/items', [ItemController::class, 'getItems']);
+Route::get('/items/{id}', [ItemController::class, 'getItemById']);
 
 Route::group([
     'middleware' => ['auth:sanctum', 'isAdmin']

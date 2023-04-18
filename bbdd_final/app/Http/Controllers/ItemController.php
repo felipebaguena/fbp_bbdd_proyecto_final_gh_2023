@@ -16,6 +16,17 @@ class ItemController extends Controller
         return response()->json($items);
     }
 
+    public function getItemById($id)
+    {
+        $item = Item::find($id);
+
+        if ($item) {
+            return response()->json(['status' => 'success', 'data' => $item]);
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'Item not found']);
+        }
+    }
+
     public function createItem(Request $request)
     {
         $request->validate([
@@ -70,18 +81,25 @@ class ItemController extends Controller
     {
         $userId = Auth::id();
         $user = User::find($userId);
-        
+
         if (!$user->selected_hero) {
             return response()->json(['status' => 'error', 'message' => 'No hero selected']);
         }
-        
-        $item = Item::inRandomOrder()->first();
-        
+
+        $assignedItems = Loot::where('hero_id', $user->selected_hero_id)->pluck('item_id')->toArray();
+        $availableItems = Item::whereNotIn('id', $assignedItems)->get();
+
+        if ($availableItems->isEmpty()) {
+            return response()->json(['status' => 'error', 'message' => 'No more items to assign']);
+        }
+
+        $item = $availableItems->random();
+
         $loot = Loot::create([
             'hero_id' => $user->selected_hero_id,
             'item_id' => $item->id,
         ]);
-        
+
         return response()->json(['status' => 'success', 'message' => 'Item assigned to hero', 'data' => $loot]);
-    }    
+    }
 }
