@@ -127,6 +127,7 @@ class HeroController extends Controller
         }
     }
 
+
     public function removeItemFromHero($heroId, $itemId)
     {
         $hero = Hero::find($heroId);

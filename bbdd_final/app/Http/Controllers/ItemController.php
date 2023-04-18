@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hero;
 use App\Models\Item;
 use App\Models\Loot;
 use App\Models\User;
@@ -101,5 +102,33 @@ class ItemController extends Controller
         ]);
 
         return response()->json(['status' => 'success', 'message' => 'Item assigned to hero', 'data' => $loot]);
+    }
+
+    public function addRandomItemToHero($heroId)
+    {
+        $hero = Hero::find($heroId);
+        $allItems = Item::all();
+        $randomItem = $allItems->random();
+
+        if ($hero && $randomItem) {
+
+            if ($hero->items->contains($randomItem->id)) {
+                return response()->json(['status' => 'error', 'message' => 'Item already assigned to the hero']);
+            }
+
+            $now = now();
+            $hero->items()->attach($randomItem->id, ['created_at' => $now, 'updated_at' => $now]);
+
+            return response()->json(['status' => 'success', 'message' => 'Random item added to hero', 'item_id' => $randomItem->id]);
+        } else {
+            $message = '';
+            if (!$hero) {
+                $message .= 'Hero not found. ';
+            }
+            if (!$randomItem) {
+                $message .= 'No items available.';
+            }
+            return response()->json(['status' => 'error', 'message' => $message]);
+        }
     }
 }

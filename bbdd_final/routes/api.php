@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group([
     'middleware' => ['auth:sanctum', 'isAdmin']
-    ], function () {
+], function () {
     Route::get('/users', [UserController::class, 'getUsers']);
     Route::get('/users/{id}', [UserController::class, 'getUser']);
     Route::put('/user/{id}/change-role/{roleId}', [UserController::class, 'changeRole']);
@@ -51,7 +51,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::group([
     'middleware' => ['auth:sanctum']
-    ], function () {
+], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/profile', [AuthController::class, 'profile']);
     Route::put('/profile', [AuthController::class, 'updateProfile']);
@@ -115,14 +115,15 @@ Route::group([
 
 Route::group([
     'middleware' => ['auth:sanctum']
-    ], function () {
-        Route::post('/add-item-to-hero', [ItemController::class, 'assignRandomItemToSelectedHero']);
+], function () {
+    Route::post('/add-item-to-hero', [ItemController::class, 'assignRandomItemToSelectedHero']);
+    Route::post('/add-item-to-hero/{id}', [ItemController::class, 'addRandomItemToHero']);
 });
 
 // BATTLES
 
 Route::group([
     'middleware' => ['auth:sanctum']
-    ], function () {
-        Route::post('/battles', [BattleController::class, 'createBattle']);
+], function () {
+    Route::post('/battles', [BattleController::class, 'createBattle']);
 });
