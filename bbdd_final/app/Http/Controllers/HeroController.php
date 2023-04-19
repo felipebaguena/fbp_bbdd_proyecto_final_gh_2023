@@ -15,10 +15,11 @@ class HeroController extends Controller
         $request->validate([
             'name' => 'required|string',
             'story' => 'required|string',
+            'image_id' => 'required|int',
         ]);
-
+    
         $userId = Auth::id();
-
+    
         $hero = Hero::create([
             'user_id' => $userId,
             'name' => $request['name'],
@@ -27,16 +28,17 @@ class HeroController extends Controller
             'defense' => rand(5, 15),
             'health' => rand(70, 160),
             'level' => 1,
+            'hero_image_id' => $request['image_id'],
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
+    
         return response()->json([
             'success' => true,
             'message' => 'Hero created successfully',
             'data' => $hero,
         ], 201);
-    }
+    }    
 
     public function getImageById($imageId)
     {

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BattleController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\HeroImageController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MonsterController;
 use App\Http\Controllers\RoleController;
@@ -77,6 +78,10 @@ Route::post('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'addItemT
 Route::delete('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'removeItemFromHero']);
 
 Route::get('/hero/image/{imageId}', [HeroController::class, 'getImageById'])->name('hero.image');
+
+// HERO IMAGES
+
+Route::get('/hero-images', [HeroImageController::class, 'getAllHeroImages'])->middleware('auth:sanctum');
 
 // MONSTERS
 

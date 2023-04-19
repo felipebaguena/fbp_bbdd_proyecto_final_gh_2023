@@ -17,7 +17,7 @@ class Hero extends Model
         'defense',
         'health',
         'level',
-        'image',
+        'hero_image_id',
         'created_at',
         'updated_at',
     ];
@@ -44,6 +44,6 @@ class Hero extends Model
 
     public function heroImage()
     {
-        return $this->belongsTo(HeroImage::class);
+        return $this->belongsTo(HeroImage::class, 'hero_image_id');
     }
 }
