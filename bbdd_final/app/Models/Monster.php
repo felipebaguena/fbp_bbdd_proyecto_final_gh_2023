@@ -23,4 +23,9 @@ class Monster extends Model
     {
         return $this->hasMany(Battle::class);
     }
+
+    public function monsterImage()
+    {
+        return $this->belongsTo(MonsterImage::class);
+    }
 }

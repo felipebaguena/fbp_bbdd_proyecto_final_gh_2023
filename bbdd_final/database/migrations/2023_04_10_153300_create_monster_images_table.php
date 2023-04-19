@@ -11,26 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('monsters', function (Blueprint $table) {
+        Schema::create('monster_images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('attack');
-            $table->integer('defense');
-            $table->integer('health');
-            $table->longText('description');
-            $table->unsignedBigInteger('monster_image_id')->nullable();
+            $table->string('image');
             $table->timestamps();
-
-            $table->foreign('monster_image_id')->references('id')->on('monster_images')->onDelete('set null');
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('monsters');
+        Schema::dropIfExists('monster_images');
     }
 };

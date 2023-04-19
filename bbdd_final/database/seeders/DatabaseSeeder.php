@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             HeroSeeder::class,
             ItemSeeder::class,
             LootSeeder::class,
+            MonsterImageSeeder::class,
             MonsterSeeder::class,
             StageSeeder::class,
             BattleSeeder::class

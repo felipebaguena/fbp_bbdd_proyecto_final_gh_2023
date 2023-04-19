@@ -81,6 +81,7 @@ Route::get('/hero/image/{imageId}', [HeroController::class, 'getImageById'])->na
 // MONSTERS
 
 Route::get('/monsters', [MonsterController::class, 'getMonsters']);
+Route::get('/monster/image/{imageId}', [MonsterController::class, 'getMonsterImageById'])->name('monster.image');
 
 Route::group([
     'middleware' => ['auth:sanctum', 'isAdmin']

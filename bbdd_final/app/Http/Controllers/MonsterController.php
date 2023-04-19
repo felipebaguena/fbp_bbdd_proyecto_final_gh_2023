@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Monster;
+use App\Models\MonsterImage;
 use Illuminate\Http\Request;
 
 class MonsterController extends Controller
@@ -27,6 +28,19 @@ class MonsterController extends Controller
 
         return response()->json(['status' => 'success', 'message' => 'Monster created', 'data' => $monster]);
     }
+
+    public function getMonsterImageById($imageId)
+    {
+        $monsterImage = MonsterImage::find($imageId);
+
+        if ($monsterImage) {
+            $imageUrl = url($monsterImage->image);
+            return response()->json(['image_url' => $imageUrl]);
+        }
+
+        return response()->json(['error' => 'Image not found'], 404);
+    }
+
 
     public function updateMonster(Request $request, $id)
     {
