@@ -18,7 +18,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('heroes')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onDelete('set null');
         });
     }
 
