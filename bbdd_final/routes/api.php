@@ -79,6 +79,8 @@ Route::delete('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'remove
 
 Route::get('/hero/image/{imageId}', [HeroController::class, 'getImageById'])->name('hero.image');
 
+Route::get('/heroes/defeated-monsters/{heroId}', [HeroController::class, 'getDefeatedMonsters'])->middleware('auth:sanctum');
+
 // HERO IMAGES
 
 Route::get('/hero-images', [HeroImageController::class, 'getAllHeroImages'])->middleware('auth:sanctum');

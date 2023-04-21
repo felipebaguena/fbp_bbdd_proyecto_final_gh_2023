@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hero;
 use App\Models\HeroImage;
 use App\Models\Item;
+use App\Models\Monster;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,9 +18,9 @@ class HeroController extends Controller
             'story' => 'required|string',
             'image_id' => 'required|int',
         ]);
-    
+
         $userId = Auth::id();
-    
+
         $hero = Hero::create([
             'user_id' => $userId,
             'name' => $request['name'],
@@ -32,13 +33,13 @@ class HeroController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-    
+
         return response()->json([
             'success' => true,
             'message' => 'Hero created successfully',
             'data' => $hero,
         ], 201);
-    }    
+    }
 
     public function getImageById($imageId)
     {
@@ -142,6 +143,32 @@ class HeroController extends Controller
         }
     }
 
+    public function getDefeatedMonsters($heroId)
+    {
+        $hero = Hero::find($heroId);
+
+        if ($hero) {
+            $battles = $hero->battles()->distinct('monster_id')->orderBy('monster_id')->get(['monster_id']);
+            $monsters = [];
+
+            foreach ($battles as $battle) {
+                $monster = Monster::find($battle->monster_id);
+                if ($monster) {
+                    array_push($monsters, $monster);
+                }
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => $monsters,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Hero not found',
+            ], 404);
+        }
+    }
 
     public function removeItemFromHero($heroId, $itemId)
     {
