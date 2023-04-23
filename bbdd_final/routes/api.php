@@ -34,6 +34,7 @@ Route::group([
     'middleware' => ['auth:sanctum', 'isAdmin']
 ], function () {
     Route::get('/users', [UserController::class, 'getUsers']);
+    Route::delete('/users/{id}', [UserController::class, 'deleteUsers']);
     Route::get('/users/{id}', [UserController::class, 'getUser']);
     Route::put('/user/{id}/change-role/{roleId}', [UserController::class, 'changeRole']);
 });
@@ -44,7 +45,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 
 Route::put('/users/{id}', [UserController::class, 'updateUsers']);
-Route::delete('/users/{id}', [UserController::class, 'deleteUsers']);
+
 
 // AUTH
 Route::post('/register', [AuthController::class, 'register']);

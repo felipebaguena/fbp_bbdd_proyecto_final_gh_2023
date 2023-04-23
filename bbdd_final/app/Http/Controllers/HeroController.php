@@ -146,18 +146,21 @@ class HeroController extends Controller
     public function getDefeatedMonsters($heroId)
     {
         $hero = Hero::find($heroId);
-
+    
         if ($hero) {
             $battles = $hero->battles()->distinct('monster_id')->orderBy('monster_id')->get(['monster_id']);
             $monsters = [];
-
+    
             foreach ($battles as $battle) {
                 $monster = Monster::find($battle->monster_id);
                 if ($monster) {
-                    array_push($monsters, $monster);
+                    $monsterImageUrl = $monster->monsterImage ? $monster->monsterImage->image_url : null;
+                    $monsterWithImage = $monster->toArray();
+                    $monsterWithImage['imageUrl'] = $monsterImageUrl;
+                    array_push($monsters, $monsterWithImage);
                 }
             }
-
+    
             return response()->json([
                 'success' => true,
                 'data' => $monsters,
@@ -169,6 +172,7 @@ class HeroController extends Controller
             ], 404);
         }
     }
+    
 
     public function removeItemFromHero($heroId, $itemId)
     {
