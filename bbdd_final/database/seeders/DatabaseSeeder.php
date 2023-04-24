@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
             MonsterImageSeeder::class,
             MonsterSeeder::class,
             StageSeeder::class,
-            BattleSeeder::class
+            BattleSeeder::class,
+            VillagerSeeder::class
         ]);
 
         // \App\Models\User::factory()->create([

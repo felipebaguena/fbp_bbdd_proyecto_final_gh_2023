@@ -9,6 +9,7 @@ use App\Http\Controllers\MonsterController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VillagerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -138,3 +139,7 @@ Route::group([
 ], function () {
     Route::post('/battles', [BattleController::class, 'createBattle']);
 });
+
+// VILLAGERS
+
+Route::get('/villager/image/{imageId}', [VillagerController::class, 'getVillagerImageById']);
