@@ -1032,6 +1032,19 @@ class MonsterSeeder extends Seeder
             ],
 
             [
+                'id' => 86,
+                'name' => "Bestia de las Sombras",
+                'attack' => 20,
+                'defense' => 15,
+                'health' => 280,
+                'description' => "La Bestia de las Sombras es una criatura temible con alas de gárgola que le permiten volar y atacar desde el aire. Acecha en las sombras y utiliza su velocidad y agilidad para abalanzarse sobre sus enemigos sin previo aviso. Su presencia siniestra y sus habilidades de combate la convierten en un adversario formidable.",
+                'monster_image_id' => 86,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+
+            [
                 'id' => 87,
                 'name' => "Barro",
                 'attack' => 14,
@@ -1473,101 +1486,6 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-
-
-
-
-
-
-
-            // [
-            //     'id' => 1,
-            //     'name' => "Grimmhorn",
-            //     'attack' => 15,
-            //     'defense' => 12,
-            //     'health' => 200,
-            //     'description' => "A towering minotaur with razor-sharp horns and a fierce temper.",
-            //     'monster_image_id' => 5,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
-            // [
-            //     'id' => 2,
-            //     'name' => "Necrotongue",
-            //     'attack' => 7,
-            //     'defense' => 8,
-            //     'health' => 80,
-            //     'description' => "A foul-mouthed zombie with a penchant for biting and a surprising amount of speed.",
-            //     'monster_image_id' => 12,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
-            // [
-            //     'id' => 3,
-            //     'name' => "Gargoyle Shadowwing",
-            //     'attack' => 18,
-            //     'defense' => 16,
-            //     'health' => 250,
-            //     'description' => "A winged stone demon with glowing red eyes and talons that can tear through steel.",
-            //     'monster_image_id' => 18,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
-            // [
-            //     'id' => 4,
-            //     'name' => "Frostbite",
-            //     'attack' => 12,
-            //     'defense' => 10,
-            //     'health' => 150,
-            //     'description' => "A frosty undead warrior with a sword made of ice and the ability to freeze enemies with a touch.",
-            //     'monster_image_id' => 28,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
-            // [
-            //     'id' => 5,
-            //     'name' => "Chimera",
-            //     'attack' => 20,
-            //     'defense' => 18,
-            //     'health' => 300,
-            //     'description' => "A mythical beast with the head of a lion, body of a goat, and tail of a serpent, capable of spitting acid and breathing fire.",
-            //     'monster_image_id' => 32,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
-            // [
-            //     'id' => 6,
-            //     'name' => "Basilisk",
-            //     'attack' => 14,
-            //     'defense' => 12,
-            //     'health' => 180,
-            //     'description' => "A serpentine monster with venomous breath and the ability to turn enemies to stone with a gaze.",
-            //     'monster_image_id' => 45,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
-            // [
-            //     'id' => 7,
-            //     'name' => "Hellhound",
-            //     'attack' => 10,
-            //     'defense' => 8,
-            //     'health' => 120,
-            //     'description' => "A demonic canine with blazing eyes and a bite that can set foes on fire.",
-            //     'monster_image_id' => 22,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
-            // [
-            //     'id' => 8,
-            //     'name' => "Wyvern",
-            //     'attack' => 16,
-            //     'defense' => 12,
-            //     'health' => 120,
-            //     'description' => "A winged dragon with a venomous tail and the ability to breathe blasts of fire.",
-            //     'monster_image_id' => 79,
-            //     'created_at' => now(),
-            //     'updated_at' => now(),
-            // ],
         ]);
     }
 }
