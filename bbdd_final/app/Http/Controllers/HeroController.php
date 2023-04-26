@@ -25,9 +25,9 @@ class HeroController extends Controller
             'user_id' => $userId,
             'name' => $request['name'],
             'story' => $request['story'],
-            'attack' => rand(5, 15),
-            'defense' => rand(5, 15),
-            'health' => rand(70, 160),
+            'attack' => rand(8, 12),
+            'defense' => rand(12, 16),
+            'health' => rand(130, 170),
             'level' => 1,
             'hero_image_id' => $request['image_id'],
             'created_at' => now(),
@@ -77,9 +77,9 @@ class HeroController extends Controller
 
         if ($hero) {
             $hero->level += 1;
-            $addedAttack = rand(3, 6);
-            $addedDefense = rand(3, 6);
-            $addedHealth = rand(10, 30);
+            $addedAttack = rand(2, 5);
+            $addedDefense = rand(2, 5);
+            $addedHealth = rand(5, 10);
 
             $hero->attack += $addedAttack;
             $hero->defense += $addedDefense;
