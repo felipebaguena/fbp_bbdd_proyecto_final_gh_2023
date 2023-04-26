@@ -982,7 +982,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 82,
                 'name' => "Doscabezas",
@@ -994,7 +994,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 83,
                 'name' => "Mente Devoradora",
@@ -1006,7 +1006,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 84,
                 'name' => "Cabeza Carmesí",
@@ -1018,7 +1018,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 85,
                 'name' => "Gorgona",
@@ -1030,7 +1030,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 87,
                 'name' => "Barro",
@@ -1042,7 +1042,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 88,
                 'name' => "Ojo Sangriento",
@@ -1054,7 +1054,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 89,
                 'name' => "Golgor",
@@ -1090,7 +1090,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 92,
                 'name' => "Hongo Intimidante",
@@ -1102,7 +1102,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 93,
                 'name' => "Águila Bestial",
@@ -1114,7 +1114,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 94,
                 'name' => "Seta Venenosa",
@@ -1126,7 +1126,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 95,
                 'name' => "Hombre de las Nieves",
@@ -1138,7 +1138,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 96,
                 'name' => "Habitante del Bosque",
@@ -1162,7 +1162,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 98,
                 'name' => "Hombre Escarabajo",
@@ -1174,7 +1174,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 99,
                 'name' => "Ulfric",
@@ -1186,7 +1186,7 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
             [
                 'id' => 100,
                 'name' => "Sombra del Castillo",
@@ -1198,8 +1198,286 @@ class MonsterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
-            
+
+            [
+                'id' => 101,
+                'name' => "Drak'thar",
+                'attack' => 20,
+                'defense' => 16,
+                'health' => 300,
+                'description' => "Drak'thar es una criatura gigante con aspecto reptiloide que se arrastra por los pantanos y las marismas. Su piel gruesa y escamosa es resistente a la mayoría de los ataques, y sus garras afiladas son capaces de cortar carne y huesos. Se dice que tiene un agudo sentido del olfato y puede rastrear a sus presas a kilómetros de distancia. Cualquier viajero que se encuentre con Drak'thar debería mantenerse alerta y preparado para una batalla difícil.",
+                'monster_image_id' => 101,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 102,
+                'name' => "Voltarion",
+                'attack' => 20,
+                'defense' => 15,
+                'health' => 340,
+                'description' => "Este colosal centurión espectral se cree que fue creado por los dioses antiguos para proteger sus templos. Su armadura es gruesa y resistente, y su casco está decorado con símbolos sagrados. Porta un rayo por arma que puede lanzar a sus enemigos con gran precisión. Aunque es lento en el movimiento, es capaz de infligir daños tremendos en una sola carga. Se dice que ha protegido santuarios sagrados durante siglos, y que cualquier intruso que se atreva a profanar su tierra será destruido sin piedad.",
+                'monster_image_id' => 102,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 103,
+                'name' => "Azzaroth, el Ave Celestial",
+                'attack' => 18,
+                'defense' => 14,
+                'health' => 260,
+                'description' => "Azzaroth, el Ave Celestial, es una majestuosa criatura de enormes proporciones, con plumas azules iridiscentes y una llamativa cola roja. Sus alas imponentes crean ráfagas de viento cuando despliega todo su esplendor. A pesar de su tamaño, Azzaroth es ágil y rápido en el aire, lo que le permite evadir a sus enemigos con facilidad. Su pico afilado y garras temibles pueden infligir un daño significativo a aquellos que se atrevan a desafiarlo. Se dice que su canto puede ser escuchado a lo largo de kilómetros, y aquellos que lo escuchan saben que deben tener cuidado con su presencia.",
+                'monster_image_id' => 103,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 104,
+                'name' => "Esqueleto Guerrero",
+                'attack' => 14,
+                'defense' => 14,
+                'health' => 160,
+                'description' => "Este antiguo guerrero reanimado es una visión aterradora. Con sus huesos desgastados y su armadura roída, el Esqueleto Guerrero continúa luchando incluso después de la muerte. A pesar de su apariencia frágil, es un enemigo ágil y persistente que no descansará hasta derrotar a sus adversarios.",
+                'monster_image_id' => 104,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 105,
+                'name' => "Esqueleto Escudero",
+                'attack' => 14,
+                'defense' => 16,
+                'health' => 180,
+                'description' => "El Esqueleto Escudero es un sirviente eterno que protege a sus compañeros no-muertos en la batalla. Aunque su ataque no es muy fuerte, su resistente escudo y habilidad para bloquear golpes lo convierten en un oponente desafiante para cualquiera que intente enfrentarse a él y a sus aliados.",
+                'monster_image_id' => 105,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 106,
+                'name' => "Momia Durmiente",
+                'attack' => 18,
+                'defense' => 14,
+                'health' => 280,
+                'description' => "La Momia Durmiente parece inofensiva a primera vista, pero una vez despierta de su sueño eterno, se convierte en un enemigo mortífero. Su cuerpo momificado esconde una fuerza sobrenatural y una resistencia sorprendente. Aunque se mueve lentamente, su poderoso ataque es suficiente para infundir temor en el corazón de cualquier aventurero.",
+                'monster_image_id' => 106,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 107,
+                'name' => "Zombi Errante",
+                'attack' => 16,
+                'defense' => 14,
+                'health' => 200,
+                'description' => "El Zombi Errante es una criatura desdichada, moviéndose lentamente con un hambre insaciable de carne. Aunque su apariencia está en descomposición, su fuerza sigue siendo una amenaza para aquellos que se crucen en su camino.",
+                'monster_image_id' => 107,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 108,
+                'name' => "Zombi Voraz",
+                'attack' => 18,
+                'defense' => 15,
+                'health' => 240,
+                'description' => "El Zombi Voraz es una bestia implacable, siempre en busca de su próxima presa. Sus mordiscos y arañazos pueden infligir daños severos, y su resistencia lo hace un oponente difícil de derribar.",
+                'monster_image_id' => 108,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 109,
+                'name' => "Esqueleto Desarmado",
+                'attack' => 14,
+                'defense' => 14,
+                'health' => 160,
+                'description' => "Aunque carece de armas, este esqueleto sigue siendo un adversario tenaz. Sus manos huesudas son capaces de asestar golpes dolorosos, y su persistencia en la lucha es sorprendente.",
+                'monster_image_id' => 109,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 110,
+                'name' => "Zombi Arrastrado",
+                'attack' => 15,
+                'defense' => 14,
+                'health' => 180,
+                'description' => "Este zombi se arrastra por el suelo con sus extremidades maltrechas, pero no permitas que su apariencia te engañe. Aunque su velocidad es reducida, su ataque sorprende a aquellos que lo subestiman, dejándolos vulnerables.",
+                'monster_image_id' => 110,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 111,
+                'name' => "Momia Resucitada",
+                'attack' => 20,
+                'defense' => 16,
+                'health' => 300,
+                'description' => "La Momia Resucitada ha sido devuelta a la vida por fuerzas oscuras, y ahora busca venganza. Su poder aumentado y su capacidad para resistir los ataques la convierten en un enemigo formidable en combate.",
+                'monster_image_id' => 111,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 112,
+                'name' => "Ojo Espectral Flotante",
+                'attack' => 18,
+                'defense' => 14,
+                'health' => 170,
+                'description' => "Este espeluznante ojo flotante es una entidad sobrenatural que vigila en silencio, emitiendo un aura escalofriante. Su ataque psíquico es capaz de causar estragos en la mente de sus enemigos, debilitándolos desde adentro.",
+                'monster_image_id' => 112,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 113,
+                'name' => "Espectro Encapuchado",
+                'attack' => 22,
+                'defense' => 16,
+                'health' => 260,
+                'description' => "El Espectro Encapuchado es un espíritu oscuro y misterioso que acecha en las sombras. Con su guadaña etérea, es capaz de segar el alma de sus enemigos, haciéndolo un adversario temible para cualquier aventurero.",
+                'monster_image_id' => 113,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 114,
+                'name' => "Zombi Mutilado",
+                'attack' => 14,
+                'defense' => 14,
+                'health' => 200,
+                'description' => "A pesar de haber perdido varias extremidades, este zombi mutilado no ha renunciado a su sed de carne. Aunque lento, es capaz de atacar con una ferocidad sorprendente, demostrando que sigue siendo una amenaza.",
+                'monster_image_id' => 114,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 115,
+                'name' => "Momia Arquera",
+                'attack' => 16,
+                'defense' => 14,
+                'health' => 240,
+                'description' => "La Momia Arquera combina la habilidad de un arquero con la fuerza sobrenatural de una momia. Sus flechas, imbuidas con energía oscura, pueden atravesar incluso las armaduras más resistentes.",
+                'monster_image_id' => 115,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 116,
+                'name' => "Escarabajo Dorado",
+                'attack' => 20,
+                'defense' => 15,
+                'health' => 300,
+                'description' => "Este escarabajo de caparazón dorado es una criatura imponente y rara. Su coraza brillante es casi impenetrable, y sus mandíbulas son capaces de triturar armaduras y huesos con facilidad. Su apariencia es engañosa, ya que se mueve rápidamente en la batalla.",
+                'monster_image_id' => 116,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 117,
+                'name' => "Necrófago",
+                'attack' => 18,
+                'defense' => 14,
+                'health' => 210,
+                'description' => "Una criatura aterradora que se alimenta de carne humana. Con sus garras y dientes afilados, puede desgarrar a sus enemigos con facilidad. Su apariencia grotesca y su velocidad en combate lo convierten en un adversario temible.",
+                'monster_image_id' => 117,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 118,
+                'name' => "Mano Cortada",
+                'attack' => 14,
+                'defense' => 14,
+                'health' => 160,
+                'description' => "Esta mano cortada, reanimada por energías oscuras, se arrastra por el suelo buscando a sus víctimas. Aunque pequeña, su fuerza y persistencia la convierten en un enemigo sorprendentemente difícil de derrotar.",
+                'monster_image_id' => 118,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 119,
+                'name' => "Sabueso No Muerto",
+                'attack' => 20,
+                'defense' => 15,
+                'health' => 240,
+                'description' => "Este Sabueso No Muerto es una bestia temible que ha sido reanimada por fuerzas oscuras. Con su olfato agudo y su mordida poderosa, es un enemigo formidable para aquellos que osan enfrentarlo.",
+                'monster_image_id' => 119,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 120,
+                'name' => "Momia Vengativa",
+                'attack' => 18,
+                'defense' => 16,
+                'health' => 280,
+                'description' => "La Momia Vengativa ha sido despertada de su sueño eterno, y busca venganza contra aquellos que la perturbaron. Con fuerza y resistencia sobrenaturales, es una amenaza formidable para cualquier aventurero.",
+                'monster_image_id' => 120,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 121,
+                'name' => "Murciélago Gigante",
+                'attack' => 16,
+                'defense' => 14,
+                'health' => 180,
+                'description' => "Este Murciélago Gigante aterroriza a los aventureros con sus alas enormes y su capacidad de ataque desde el aire. Su mordida y sus garras son letales, y su habilidad para atacar rápidamente lo hace un enemigo difícil de esquivar.",
+                'monster_image_id' => 121,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 122,
+                'name' => "Vladisar",
+                'attack' => 22,
+                'defense' => 16,
+                'health' => 320,
+                'description' => "Este poderoso nigromante es conocido por su capacidad de controlar a los muertos y manipular las fuerzas oscuras. Armado con un báculo místico y una corona que refuerza sus poderes, Vladisar es un enemigo temible y astuto, no subestimes su capacidad para causar estragos en el campo de batalla.",
+                'monster_image_id' => 122,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'id' => 123,
+                'name' => "Amenkharis, Rey de los No Muertos",
+                'attack' => 22,
+                'defense' => 16,
+                'health' => 300,
+                'description' => "Amenkharis, el Rey de los No Muertos, fue alguna vez un poderoso faraón egipcio. Ahora, ha renacido como un gobernante inmortal que controla a legiones de criaturas no muertas. Con aspecto de dios egipcio y poderes sobrenaturales, Amenkharis es un enemigo aterrador que no muestra misericordia ante aquellos que se oponen a su reinado.",
+                'monster_image_id' => 123,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+
+
+
+
 
 
             // [
