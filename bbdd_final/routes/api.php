@@ -138,6 +138,7 @@ Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
     Route::post('/battles', [BattleController::class, 'createBattle']);
+    Route::put('/battles/{battle_id}', [BattleController::class, 'updateBattleResult']);
 });
 
 // VILLAGERS

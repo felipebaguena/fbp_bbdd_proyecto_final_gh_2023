@@ -16,24 +16,26 @@ return new class extends Migration
 
             $table->unsignedBigInteger('hero_id');
             $table->foreign('hero_id')
-            ->references('id')
-            ->on('heroes')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('heroes')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('monster_id');
             $table->foreign('monster_id')
-            ->references('id')
-            ->on('monsters')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('monsters')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('stage_id');
             $table->foreign('stage_id')
-            ->references('id')
-            ->on('stages')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('stages')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->boolean('hero_victory')->default(false);
 
             $table->timestamps();
         });

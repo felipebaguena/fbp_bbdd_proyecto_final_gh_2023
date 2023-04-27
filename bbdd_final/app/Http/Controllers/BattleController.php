@@ -34,4 +34,17 @@ class BattleController extends Controller
     
         return response()->json(['status' => 'success', 'message' => 'Battle created', 'data' => $battle]);
     }    
+
+    public function updateBattleResult(Request $request, $battle_id)
+    {
+        $battle = Battle::find($battle_id);
+        if ($request->input('hero_victory') == true) {
+            $battle->hero_victory = true;
+        }
+        $battle->save();
+
+        return response()->json(['status' => 'success', 'message' => 'Battle result updated', 'data' => $battle]);
+    }
+    
+    
 }

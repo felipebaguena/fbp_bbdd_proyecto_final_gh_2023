@@ -13,6 +13,7 @@ class Battle extends Model
         'hero_id',
         'monster_id',
         'stage_id',
+        'hero_victory',
         'created_at',
         'updated_at',
     ];
