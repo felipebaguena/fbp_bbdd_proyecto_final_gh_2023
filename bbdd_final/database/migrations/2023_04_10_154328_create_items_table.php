@@ -17,7 +17,6 @@ return new class extends Migration
             $table->longText('description');
             $table->integer('attack_modifier');
             $table->integer('defense_modifier');
-            $table->integer('health_modifier');
             $table->string('rare');
             $table->timestamps();
         });

@@ -35,7 +35,6 @@ class ItemController extends Controller
             'description' => 'required|string',
             'attack_modifier' => 'required|integer',
             'defense_modifier' => 'required|integer',
-            'health_modifier' => 'required|integer',
             'rare' => 'required|string',
         ]);
 
@@ -103,6 +102,8 @@ class ItemController extends Controller
 
         return response()->json(['status' => 'success', 'message' => 'Item assigned to hero', 'data' => $loot]);
     }
+
+
 
     public function addRandomItemToHero($heroId)
     {
