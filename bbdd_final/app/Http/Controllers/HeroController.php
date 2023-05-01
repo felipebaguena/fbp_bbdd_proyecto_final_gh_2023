@@ -177,6 +177,32 @@ class HeroController extends Controller
         }
     }
 
+    public function getTopHeroesByKills()
+    {
+        $heroes = Hero::withCount([
+            'battles' => function ($query) {
+                $query->where('hero_victory', true);
+            }
+        ])
+            ->orderBy('battles_count', 'desc')
+            ->get();
+
+        $topHeroes = [];
+
+        foreach ($heroes as $hero) {
+            array_push($topHeroes, [
+                'hero_id' => $hero->id,
+                'hero_name' => $hero->name,
+                'kills' => $hero->battles_count,
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'data' => $topHeroes,
+        ]);
+    }
+
 
     public function removeItemFromHero($heroId, $itemId)
     {

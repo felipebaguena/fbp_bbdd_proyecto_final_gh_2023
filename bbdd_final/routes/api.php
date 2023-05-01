@@ -78,10 +78,10 @@ Route::put('/heroes/{heroId}/level-up', [HeroController::class, 'levelUpHero']);
 Route::get('/hero/{hero_id}/items', [HeroController::class, 'getHeroItems']);
 Route::post('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'addItemToHero']);
 Route::delete('/heroes/{heroId}/items/{itemId}', [HeroController::class, 'removeItemFromHero']);
-
 Route::get('/hero/image/{imageId}', [HeroController::class, 'getImageById'])->name('hero.image');
 
 Route::get('/heroes/defeated-monsters/{heroId}', [HeroController::class, 'getDefeatedMonsters'])->middleware('auth:sanctum');
+Route::get('/top-heroes', [HeroController::class, 'getTopHeroesByKills']);
 
 // HERO IMAGES
 
