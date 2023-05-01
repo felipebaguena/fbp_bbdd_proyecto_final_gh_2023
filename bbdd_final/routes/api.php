@@ -85,7 +85,7 @@ Route::get('/top-heroes', [HeroController::class, 'getTopHeroesByKills']);
 
 // HERO IMAGES
 
-Route::get('/hero-images', [HeroImageController::class, 'getAllHeroImages'])->middleware('auth:sanctum');
+Route::get('/hero-images', [HeroImageController::class, 'getAllHeroImages']);
 
 // MONSTERS
 

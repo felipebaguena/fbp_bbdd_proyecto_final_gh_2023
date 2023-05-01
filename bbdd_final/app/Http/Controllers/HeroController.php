@@ -184,25 +184,33 @@ class HeroController extends Controller
                 $query->where('hero_victory', true);
             }
         ])
-            ->orderBy('battles_count', 'desc')
-            ->get();
-
+        ->with('heroImage')
+        ->orderBy('battles_count', 'desc')
+        ->take(10)
+        ->get();
+    
         $topHeroes = [];
-
+    
         foreach ($heroes as $hero) {
+            $imageId = null;
+            if ($hero->heroImage) {
+                $imageId = $hero->heroImage->id;
+            }
+            
             array_push($topHeroes, [
                 'hero_id' => $hero->id,
                 'hero_name' => $hero->name,
                 'kills' => $hero->battles_count,
+                'hero_image_id' => $imageId,
             ]);
         }
-
+    
         return response()->json([
             'success' => true,
             'data' => $topHeroes,
         ]);
     }
-
+    
 
     public function removeItemFromHero($heroId, $itemId)
     {
