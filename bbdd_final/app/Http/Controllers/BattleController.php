@@ -16,24 +16,36 @@ class BattleController extends Controller
     {
         $userId = Auth::id();
         $user = User::find($userId);
-    
+
         if (!$user->selected_hero) {
             return response()->json(['status' => 'error', 'message' => 'No hero selected']);
         }
-    
+
         $monster = Monster::inRandomOrder()->first();
         $stage = Stage::inRandomOrder()->first();
-    
+
         $battle = Battle::create([
             'hero_id' => $user->selected_hero_id,
             'monster_id' => $monster->id,
             'stage_id' => $stage->id,
         ]);
 
-        $battle->load('hero', 'monster', 'stage');
-    
+        $battle->load(['hero.heroImage', 'monster.monsterImage', 'stage']);
+
+
+        if ($battle->hero->heroImage) {
+            $battle->hero->heroImage->image_url = url($battle->hero->heroImage->image);
+        }
+
+        if ($battle->monster->monsterImage) {
+            $battle->monster->monsterImage->image_url = url($battle->monster->monsterImage->image);
+        }
+
+
         return response()->json(['status' => 'success', 'message' => 'Battle created', 'data' => $battle]);
-    }    
+    }
+
+
 
     public function updateBattleResult(Request $request, $battle_id)
     {
@@ -45,6 +57,4 @@ class BattleController extends Controller
 
         return response()->json(['status' => 'success', 'message' => 'Battle result updated', 'data' => $battle]);
     }
-    
-    
 }

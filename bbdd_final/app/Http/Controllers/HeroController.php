@@ -16,7 +16,7 @@ class HeroController extends Controller
         $request->validate([
             'name' => 'required|string',
             'story' => 'required|string',
-            'image_id' => 'required|int',
+            'hero_image_id' => 'required|int',
         ]);
 
         $userId = Auth::id();
@@ -29,7 +29,7 @@ class HeroController extends Controller
             'defense' => rand(13, 16),
             'health' => rand(140, 160),
             'level' => 1,
-            'hero_image_id' => $request['image_id'],
+            'hero_image_id' => $request['hero_image_id'],
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -40,6 +40,7 @@ class HeroController extends Controller
             'data' => $hero,
         ], 201);
     }
+
 
     public function getImageById($imageId)
     {
@@ -106,14 +107,15 @@ class HeroController extends Controller
 
     public function getHeroItems(Request $request, $hero_id)
     {
-        $hero = Hero::find($hero_id);
+        $hero = Hero::with('heroImage')->find($hero_id);
         if (!$hero) {
             return response()->json(['message' => 'Hero not found'], 404);
         }
 
         $items = $hero->loots()->with('item')->get()->pluck('item');
-        return response()->json(['status' => 'success', 'data' => $items], 200);
+        return response()->json(['status' => 'success', 'heroImage' => $hero->heroImage, 'data' => $items], 200);
     }
+
 
 
     public function addItemToHero($heroId, $itemId)
@@ -156,9 +158,9 @@ class HeroController extends Controller
             $monsters = [];
 
             foreach ($battles as $battle) {
-                $monster = Monster::find($battle->monster_id);
+                $monster = Monster::find($battle->monster_id)->load('monsterImage');
                 if ($monster) {
-                    $monsterImageUrl = $monster->monsterImage ? $monster->monsterImage->image_url : null;
+                    $monsterImageUrl = $monster->monsterImage ? url($monster->monsterImage->image) : null;
                     $monsterWithImage = $monster->toArray();
                     $monsterWithImage['imageUrl'] = $monsterImageUrl;
                     array_push($monsters, $monsterWithImage);
@@ -184,33 +186,38 @@ class HeroController extends Controller
                 $query->where('hero_victory', true);
             }
         ])
-        ->with('heroImage')
-        ->orderBy('battles_count', 'desc')
-        ->take(10)
-        ->get();
-    
+            ->with('heroImage')
+            ->orderBy('battles_count', 'desc')
+            ->take(10)
+            ->get();
+
         $topHeroes = [];
-    
+
         foreach ($heroes as $hero) {
-            $imageId = null;
+            $heroImageData = null;
             if ($hero->heroImage) {
-                $imageId = $hero->heroImage->id;
+                $imageUrl = url($hero->heroImage->image);
+                $heroImageData = [
+                    'id' => $hero->heroImage->id,
+                    'image' => $imageUrl,
+                ];
             }
-            
+
             array_push($topHeroes, [
                 'hero_id' => $hero->id,
                 'hero_name' => $hero->name,
                 'kills' => $hero->battles_count,
-                'hero_image_id' => $imageId,
+                'hero_image' => $heroImageData,
             ]);
         }
-    
+
         return response()->json([
             'success' => true,
             'data' => $topHeroes,
         ]);
     }
-    
+
+
 
     public function removeItemFromHero($heroId, $itemId)
     {

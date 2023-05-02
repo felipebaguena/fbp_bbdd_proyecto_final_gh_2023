@@ -26,6 +26,6 @@ class Monster extends Model
 
     public function monsterImage()
     {
-        return $this->belongsTo(MonsterImage::class);
+        return $this->belongsTo(MonsterImage::class, 'monster_image_id');
     }
 }

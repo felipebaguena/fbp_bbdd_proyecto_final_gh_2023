@@ -52,10 +52,18 @@ class UserController extends Controller
     public function getHeroesAndItems()
     {
         $userId = auth()->id();
-        $user = User::with('heroes.items')->findOrFail($userId);
+        $user = User::with(['heroes.items', 'heroes.heroImage'])->findOrFail($userId);
 
-        return response()->json($user->heroes);
+        $heroes = $user->heroes->map(function ($hero) {
+            if ($hero->heroImage) {
+                $hero->heroImage->image = url($hero->heroImage->image);
+            }
+            return $hero;
+        });
+
+        return response()->json($heroes);
     }
+
 
     public function selectHero(Request $request, $heroId)
     {

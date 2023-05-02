@@ -36,7 +36,7 @@ class User extends Authenticatable
 
     public function heroes()
     {
-        return $this->hasMany(Hero::class);
+        return $this->hasMany(Hero::class)->with('heroImage');
     }
 
     /**
